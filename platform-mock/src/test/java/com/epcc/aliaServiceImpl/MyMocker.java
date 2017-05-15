@@ -1,0 +1,1 @@
+package com.epcc.aliaServiceImpl;import jdk.nashorn.internal.ir.annotations.Reference;import org.springframework.stereotype.Component;import org.springframework.stereotype.Service;/** * Created by Alia on 2017/4/26. */public interface MyMocker {    public String testhello();    public String world();}

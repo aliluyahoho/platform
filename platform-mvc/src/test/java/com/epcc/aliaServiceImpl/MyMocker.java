@@ -1,0 +1,1 @@
+package com.epcc.aliaServiceImpl;/** * Created by Alia on 2017/4/26. */public interface MyMocker {    public String testhello();    public String world();}

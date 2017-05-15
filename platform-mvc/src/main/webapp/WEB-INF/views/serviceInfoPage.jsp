@@ -1,0 +1,1 @@
+<html><head>    <title>ServiceInfo</title></head><body>    <h1>Wellcome !</h1>    <p>serviceInfo.id = ${serviceInfo.id}</p>    <p>serviceInfo.interfaceName = ${serviceInfo.interfaceName}<p>    <p>serviceInfo.version = ${serviceInfo.version}<p>    <p>serviceInfo.timeout = ${serviceInfo.timeout}<p></body></html>

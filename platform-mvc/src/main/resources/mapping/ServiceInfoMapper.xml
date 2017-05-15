@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spring.database.dao.ServiceInfoDao">
+    <resultMap id="BaseResultMap" type="com.spring.database.entity.ServiceInfo">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="interface_name" property="interfaceName" jdbcType="VARCHAR"/>
+        <result column="version" property="version" jdbcType="VARCHAR"/>
+        <result column="timeout" property="timeout" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, interface_name, version, timeout
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from t_mock_service_info
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectByEntity" resultMap="BaseResultMap" parameterType="com.spring.database.entity.ServiceInfo">
+        select
+        <include refid="Base_Column_List"/>
+        from t_mock_service_info
+        where
+        <if test="interfaceName != null">
+            interface_name = #{interfaceName,jdbcType=VARCHAR}
+        </if>
+        <if test="version != null">
+            AND version = #{version,jdbcType=VARCHAR}
+        </if>
+        <if test="timeout != null">
+            AND timeout = #{timeout,jdbcType=INTEGER}
+        </if>
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_mock_service_info
+    </select>
+    <select id="selectCountById" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        select count(*) from t_mock_service_info
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectCountByEntity" resultType="java.lang.Integer"
+            parameterType="com.spring.database.entity.ServiceInfo">
+        select count(*) from t_mock_service_info
+        where
+        <if test="interfaceName != null">
+            interface_name = #{interfaceName,jdbcType=VARCHAR}
+        </if>
+        <if test="version != null">
+            AND version = #{version,jdbcType=VARCHAR}
+        </if>
+        <if test="timeout != null">
+            AND timeout = #{timeout,jdbcType=INTEGER}
+        </if>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_mock_service_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <delete id="deleteByEntity" parameterType="com.spring.database.entity.ServiceInfo">
+        delete from t_mock_service_info
+        where
+        <if test="interfaceName != null">
+            interface_name = #{interfaceName,jdbcType=VARCHAR}
+        </if>
+        <if test="version != null">
+            AND version = #{version,jdbcType=VARCHAR}
+        </if>
+        <if test="timeout != null">
+            AND timeout = #{timeout,jdbcType=INTEGER}
+        </if>
+    </delete>
+
+    <insert id="insertSelective" parameterType="com.spring.database.entity.ServiceInfo">
+        insert into t_mock_service_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="interfaceName != null">
+                interface_name,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="timeout != null">
+                timeout,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="interfaceName != null">
+                #{interfaceName,jdbcType=VARCHAR},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=VARCHAR},
+            </if>
+            <if test="timeout != null">
+                #{timeout,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.spring.database.entity.ServiceInfo">
+        update t_mock_service_info
+        <set>
+            <if test="interfaceName != null">
+                interface_name = #{interfaceName,jdbcType=VARCHAR},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=VARCHAR},
+            </if>
+            <if test="timeout != null">
+                timeout = #{timeout,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+</mapper>
