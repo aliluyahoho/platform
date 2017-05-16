@@ -1,0 +1,1 @@
+package com.control.impl;import com.control.ControlService;import com.spring.database.entity.ServiceInfo;/** * Created by Alia on 2017/5/16. */public class ControlServiceImpl implements ControlService{    @Override    public ServiceInfo getServiceInfo() {        return null;    }}

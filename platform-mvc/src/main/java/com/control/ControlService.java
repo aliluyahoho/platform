@@ -1,0 +1,1 @@
+package com.control;import com.spring.database.entity.ServiceInfo;/** * MockServiceInfo 数据缓存 * Created by Alia on 2017/5/16. */public interface ControlService {    ServiceInfo getServiceInfo();}

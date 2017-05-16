@@ -12,6 +12,13 @@ public class ServiceInfo {
     public ServiceInfo() {
     }
 
+    public ServiceInfo(Integer id, String interfaceName, String version, Integer timeout) {
+        this.id = id;
+        this.interfaceName = interfaceName;
+        this.version = version;
+        this.timeout = timeout;
+    }
+
     public ServiceInfo(String interfaceName, String version, Integer timeout) {
         this.interfaceName = interfaceName;
         this.version = version;
